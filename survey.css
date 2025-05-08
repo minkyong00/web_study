@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    width: 800px;
+    margin: 0 auto;
+}
+
+fieldset {
+    padding: 20px 50px;
+    /* width: 800px; */
+}
+
+#intro, #radio, #number, #textarea {
+    margin-bottom: 15px;
+}
+
+#intro, #radio {
+   input {
+    margin: 5px;
+   }
+}
+
+#number {
+    p {
+        display: inline;
+    }
+}
+
+#button {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
