@@ -1,0 +1,118 @@
+/* 가상클래스 선택자 */
+/* 요소의 상태에 따라 스타일을 적용할 때 사용 */
+
+/* 링크 상태 */
+a:link { 
+    font-size: 2em;  
+    color: black; 
+}
+
+/* 방문했던 상태 */
+a:visited {
+    color: red;
+}
+
+/* 마우스를 올린 상태 */
+a:hover {
+    color: blue;
+}
+
+/* 활성화 상태 */
+a:active {
+    color: yellow;
+}
+
+input:hover {
+    border: 5px solid #ffcc00;
+}
+
+/* 요소가 포커스를 받은 상태 */
+input[type="text"]:focus {
+    background-color: lightgrey;
+}
+
+/*  요소가 체크된 상태 */
+input[type="radio"]:checked {
+    background-color: lightgrey;
+}
+
+/* 요소가 사용가능 상태 */
+input[type="text"]:enabled {
+    border: 3px solid orange;
+}
+
+/* 요소가 사용불가능 상태 */
+input[type="text"]:disabled {
+    border: 3px solid blue;
+}
+
+/* 자식 중 첫 번째 자식 */
+ul > li:first-child {
+    font-size: 2em;
+}
+
+/*  자식 중 마지막 자식 */
+ul > li:last-child {
+    font-size: 3em;
+}
+
+/* 자식 중 두 번째 자식 */
+ul > li:nth-child(2) {
+    font-size: 5em;
+}
+
+/* 자식 중 뒤에서 두 번째 자식 */
+ul > li:nth-last-child(2) {
+    color: blue;
+}
+
+/* 자식 중에서 li인 것 중 첫 번째 */
+ul > li:first-of-type {
+    color: red;
+}
+
+/* 자식 중에서 li인 것 중 마지막 */
+ul > li:last-of-type {
+    color: yellow;
+}
+
+/* 자식 중에서 li인 것 중 두번째 */
+ul > li:nth-of-type(2) {
+    color: red;
+}
+
+/* 자식 중에서 li인 것 중 뒤에서 첫 번째 */
+ul > li:nth-last-of-type(1) {
+    color: cyan
+}
+
+/*  div의 자손 중 input이 아닌 것 */
+div:not(input) {
+    font-style: italic;
+}
+
+/* 가상 요소 선택자 */
+
+p::first-letter {
+    font-size: 2em;
+    color: blue;
+}
+
+p::first-line {
+    text-decoration: underline;
+}
+
+/* 컨텐트 앞 */
+p::before {
+    content: "[before]";
+}
+
+/* 컨텐트 뒤 */
+p::after {
+    content: "[after]";
+}
+
+/*  마우스로 드래그한 컨텐트 */
+p::selection {
+    color: yellow;
+}
