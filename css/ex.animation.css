@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul > li {
+    list-style: none;
+    float: left;
+    margin-right: 10px;
+    background-color: blueviolet;
+    color: white;
+    font-weight: bold;
+    width: 100px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 2s;
+}
+
+ul::after {
+    content: "";
+    display: block;
+    clear: left;
+}
+
+@keyframes move {
+    from {
+        top: 0;
+    }
+    to {
+        top: 20px;
+        background-color: white;
+        color: black;
+    }
+}
+
+li#menu1 {
+    position: relative;
+    animation-duration: 2s;
+    animation-name: move;
+    animation-iteration-count: 3;
+    animation-delay: 1s;
+}
+
+li#menu2:hover {
+    background-color: black;
+    transition: background-color color 1s;
+    color: white;
+    transform: scale(1.1) rotate(1deg);
+    transition: all 2s;
+}
+
+li#menu3:hover {
+    background-color: antiquewhite;
+    color: black;
+    transform: translate(50px, 30px);
+    transition: all 2s;
+}
+
+li#menu4:hover {
+    transform: rotate(180deg);
+    transition: all 2s;
+}
+
+li#menu5:hover {
+    transform: scale(1.5);
+    transition: all 2s;
+}
