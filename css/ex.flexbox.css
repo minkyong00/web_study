@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrap { 
+    margin: 0 auto;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #000;
+    background-color: yellow;
+}
+
+img {
+    display: block;
+    width: 300px;
+    margin: 20px;
+}
+

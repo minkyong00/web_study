@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+hr {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* 
+
+프로필
+
+*/
+
+#profile-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#intro-wrap {
+    margin: 48px 66px;
+}
+
+#intro-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#intro-container > img {
+    width: 200px;
+    height: 200px;
+}
+
+#intro-container p {
+    margin: 0;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+#intro-title > p {
+    font-size: 25px;
+}
+
+#intro-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+}
+
+#skills-wrap {
+    height: 310px;
+    margin: 48px 66px;
+}
+
+#skills-container > ul {
+    padding: 0;
+}
+
+#skills-container > ul > li {
+    list-style: none;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    border-radius: 10px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.02);
+    padding: 5px 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.skills { cursor: pointer; }
+
+.certificate { cursor: pointer; }
+
+#skills-container > ul > li > img {
+    width: 20px;
+    height: 20px;
+}
+
+#skills-title {
+    margin-bottom: 20px;
+}
+
+#skills-title > p {
+    margin: 0;
+    font-size: 25px;
+}
+
+/* 
+
+프로젝트 
+
+*/
+
+#project-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+}
+
+.project-container {
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 10px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.02);
+    padding: 20px;
+}
+
+.project-container > img {
+    border-radius: 10px;
+}
+
+.project-body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+} 
+
+.project-body > h5 {
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.project-body > p {
+    margin: 0;
+}
+
+.project-container:hover {
+    transform: scale(1.1);
+}
+
+
+
