@@ -113,6 +113,7 @@ console.log();
 
 // 1의 배수
 // 9의 배수
+// 둘 다 나누면 나머지 1
 for (let i = 1; i<10; i++){
     for (let j = 1; j<10; j++){
         if(i % 8 == 1 || j % 8 == 1){
@@ -160,9 +161,7 @@ console.log();
 // 9 16 21 24
 for (let i = 1; i<10; i++){
     for (let j = 1; j<10; j++){        
-        if(i == j ||
-           i*j == 9 + (i - 1)*(-i + 9)
-        ){
+        if(i == j || i*j == 9 + (i - 1)*(-i + 9)){
             process.stdout.write('*');        
         } else {
             process.stdout.write('0');        
