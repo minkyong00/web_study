@@ -59,7 +59,7 @@ console.log(age30);
 
 // 10. 각 사람의 주소 중 시이름에서 '시' 동이름에서 '동'을
 //    제거하고 이름, 나이, 주소를 출력    ex) 홍길동,20세,서울 역삼
-const address = persons.map(ele => ele.address).join();
+const address = persons.map(ele => `${ele.address.si} ${ele.address.dong}`);
 console.log(address);
 
 
@@ -103,15 +103,22 @@ const students = [
     {name: '김길동', score: 55}
 ];
 
-console.log(students.map(ele => ele).sort());
+console.log(students.sort((a, b) => a.name > b.name ? 1 : -1));
 
 
 // 6. 점수에 대해 내림차순 정렬, 점수가 같으면 이름에 대해 오름차순 정렬
+console.log(students
+    .sort((a, b) => a.score == b.score ? (a.name > b.name ? 1 : -1) : b.score - a.score ));
 
+
+    
+// 7. item 숫자 기준으로 오름차순 정렬 (item1 item3 item20 item100)
 const items = ['item20', 'item3', 'item100', 'item1'];
 
-// 7. item 숫자 기준으로 오름차순 정렬 (item1 item3 item20 item100)
 
+
+
+// 8. 나이 기준으로 내림차순 정렬, 나이가 같으면 풀네임(lname+fname) 내림차순 정렬
 const obj = [
     {name: {fname:'길동',lname:'홍'}, age: 30},
     {name: {fname:'순신',lname:'이'}, age: 20},
@@ -120,4 +127,6 @@ const obj = [
     {name: {fname:'관순',lname:'유'}, age: 20}
 ];
 
-// 8. 나이 기준으로 내림차순 정렬, 나이가 같으면 풀네임(lname+fname) 내림차순 정렬
+console.log(obj.sort((a, b) => a.age == b.age ? (
+    obj.map((ele) => `${ele.name.fname} ${ele.name.lname}`)
+) : b.age - a.age));
