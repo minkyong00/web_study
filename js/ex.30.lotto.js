@@ -38,7 +38,7 @@ const getLottoNumbers = user => {
         if(user =='machine'){
             while(true){
                 if(!lottoNumSet.has(bonusNum)) {
-                    bonusNum = Math.floor(Math.random * 45) + 1;
+                    bonusNum = Math.floor(Math.random() * 45) + 1;
                     break;
                 }
             }
@@ -46,39 +46,54 @@ const getLottoNumbers = user => {
         return [Array.from(lottoNumSet).sort((a, b) => a-b), bonusNum];
 }
 
-console.log(getLottoNumbers('user'));
-console.log(getLottoNumbers('machine'));
+// console.log(getLottoNumbers('user'));
+// console.log(getLottoNumbers('machine'));
 
 const lottoMachine = () => {
+    const [userNums] = getLottoNumbers('user');
     
-}
+    let count1 = 0; //1등
+    let count2 = 0; //2등
+    let count3 = 0; //3등
+    let count4 = 0; //4등
+    let count5 = 0; //5등
+    let fail = 0; // 꽝
 
-let count = 0;
-for(let i = 0; i < 6; i++){
-    if(getLottoNumbers('machine')[i] === getLottoNumbers('user')[i]){
-        return count++;
+    for(let i =0; i< 2000; i++){
+    // console.log(machineNums);
+    // console.log(userNums);
+    
+    const [machineNums] = getLottoNumbers('machine');
+    const machineBonusNum = getLottoNumbers('machine')[1];
+    // console.log(machineBonusNum);
+    
+
+    const matchCount = machineNums.filter(num => userNums.includes(num)).length;
+    const bonusNumCount = userNums.includes(machineBonusNum);
+    // console.log(matchCount);
+    // console.log(bonusNumCount);
+
+    
+    
+
+    if(matchCount === 6){
+        count1++;
+    } else if(matchCount == 5 && bonusNumCount){
+        count2++;
+    } else if(matchCount === 5){
+        count3++;
+    } else if(matchCount === 4){
+        count4++;
+    } else if (matchCount === 3){
+        count5++;
+    } else {
+        fail++;
     }
 }
-// console.log(count);
 
-
-
+    console.log(`사용자의 로또 번호 : ${userNums}`);
+    console.log(`1등 : ${count1}번, 2등: ${count2}, 3등:${count3} 4등: ${count4}번, 5등 : ${count5}번, 꽝 : ${fail}번`);
     
+}
 
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
+lottoMachine();
