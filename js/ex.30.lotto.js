@@ -15,20 +15,8 @@
 // 사용자의 로또 번호 : 3 12 23 24 35 45
 // 1등 : 1번, 2등: 3번, 3등:100번, 4등: 500번, 5등 : 1000번 
 
-
-// 로또 정답 번호
-// while(lottoNumSet.size < 7) {
-//     lottoNumSet.add(Math.floor(Math.random() * 45) + 1);
-// }
-// console.log(lottoNumSet);
-
-// 사용자 로또 번호
-// const userNumSet = new Set();
-// while(userNumSet.size < 6) {
-//     userNumSet.add(Math.floor(Math.random() * 45) + 1);
-// }
-// console.log(userNumSet);
-
+// 사용자, 머신 로또 번호 6자리 랜덤 추출
+//
 const getLottoNumbers = user => {
     const lottoNumSet = new Set();
         while(lottoNumSet.size < 6 ) {
@@ -50,50 +38,41 @@ const getLottoNumbers = user => {
 // console.log(getLottoNumbers('machine'));
 
 const lottoMachine = () => {
-    const [userNums] = getLottoNumbers('user');
+    // 사용자의 로또번호
+    const [ userNums ] = getLottoNumbers('user');
     
-    let count1 = 0; //1등
-    let count2 = 0; //2등
-    let count3 = 0; //3등
-    let count4 = 0; //4등
-    let count5 = 0; //5등
-    let fail = 0; // 꽝
+    // 당첨된 등수 카운트 배열
+    const countArr = new Array(6).fill(0);
 
-    for(let i =0; i< 2000; i++){
-    // console.log(machineNums);
-    // console.log(userNums);
-    
-    const [machineNums] = getLottoNumbers('machine');
-    const machineBonusNum = getLottoNumbers('machine')[1];
-    // console.log(machineBonusNum);
-    
+    for(let i =0; i< 100000; i++){
+        
+        // 머신의 로또 번호
+        const [ machineNums ] = getLottoNumbers('machine');
+        // 머신의 보너스 번호
+        const machineBonusNum = getLottoNumbers('machine')[1];
+        // 머신 로또 번호와 사용자의 로또 번호가 
+        // 포함되어있는 배열을 반환 후 길이(맞춘 개수) 출력
+        const matchCount = machineNums.filter(num => userNums.includes(num)).length;
+        // 사용자의 로또 번호안에 머신의 보너스 번호 포함 하면 true 출력
+        const isBonusNum = userNums.includes(machineBonusNum);
 
-    const matchCount = machineNums.filter(num => userNums.includes(num)).length;
-    const bonusNumCount = userNums.includes(machineBonusNum);
-    // console.log(matchCount);
-    // console.log(bonusNumCount);
-
-    
-    
-
-    if(matchCount === 6){
-        count1++;
-    } else if(matchCount == 5 && bonusNumCount){
-        count2++;
-    } else if(matchCount === 5){
-        count3++;
-    } else if(matchCount === 4){
-        count4++;
-    } else if (matchCount === 3){
-        count5++;
-    } else {
-        fail++;
+        switch(matchCount){
+            case 6 : countArr[0]++; break;
+            case 5 : 
+            // 맞춘 개수가 5개인 경우 보너스가 포함되어 있으면 2등 카운트 1 증가,
+            // 아니면 3등 카운트 1증가
+            if(isBonusNum) countArr[1]++;
+            else countArr[2]; break;
+            case 4 : countArr[3]++; break;
+            case 3 : countArr[4]++; break;
+            default : countArr[5]++;
+        }
     }
-}
-
-    console.log(`사용자의 로또 번호 : ${userNums}`);
-    console.log(`1등 : ${count1}번, 2등: ${count2}, 3등:${count3} 4등: ${count4}번, 5등 : ${count5}번, 꽝 : ${fail}번`);
     
+    console.log(`사용자의 로또 번호 : ${userNums}`);
+    for(let i=0; i<countArr.length; i++){
+        console.log(`${(i+1)>5 ? '꽝' : (i+1) + '등 :'} ${countArr[i]}번`);
+    }
 }
 
 lottoMachine();
