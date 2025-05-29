@@ -35,6 +35,14 @@ function shuffleArray(array) {
 
 document.querySelector('table').addEventListener('click', e => {
     e.target.style.backgroundColor = 'yellow';
-    console.log(e.target.textContent);
-    
+    let target = Number(e.target.textContent);
+    console.log(target);
+    if(numArr.includes(target)) selArr.push(target);
+    console.log(selArr);
+});
+
+document.querySelector('button').addEventListener('click', () => {
+    let sum = selArr.reduce((acc, curr) => { return acc + curr }, 0);
+    console.log(sum);
+    document.querySelector("input[type='text']").value = sum;
 });
