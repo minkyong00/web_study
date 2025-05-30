@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $('#div1').mouseenter(e => {
+                console.log('div에 마우스 커서 진입!');
+            });
+            $('#div1').mouseleave(e => {
+                console.log('div에서 마우스 커서 벗어남!');
+            });
+        });
+
+        // 실습
+        // 1번 버튼을 클릭하면 div의 크기가 2배 확대, 다시 클릭하면 2배 축소
+        // 2번 버튼을 클릭하면 div가 우측으로 100px 이동, 다시 클릭하면 원위치
+        // 3번 버튼을 클릭하면 div를 동그랗게, 다시 클릭하면 원상태
+        $(function() {
+
+            let isScaled = false;
+            let isMoved = false;
+            let isRound = false;
+
+            $('#btn1').click(e => {
+                const width = $('#div1').width();                
+                const height = $('#div1').height(); 
+                if(!isScaled){
+                    $('#div1').animate({ width: width*2, height:height*2}, 
+                    () => { isScaled = true; });
+                } else {
+                    $('#div1').animate({ width: width/2, height:height/2}, 
+                    () => { isScaled = false; });
+                }
+                
+            });
+
+            $('#btn2').click(e => {
+                $('#div1').css('position', 'absolute');
+                if(!isMoved){
+                    $('#div1').animate({ left : '+=100px' },
+                    () => { isMoved = true; });
+                } else {
+                    $('#div1').animate({ left : '-=100px' },
+                    () => { isMoved = false; });
+                }
+            });
+            
+            $('#btn3').click(e => {
+                if(!isRound){
+                    $('#div1').animate({ borderRadius : "50%" },
+                    () => { isRound = true; })
+                } else {
+                    $('#div1').animate({ borderRadius : 0 }, 
+                    () => { isRound = false; })
+                }                
+                });
+            });
+
+    </script>
+    <style>
+        div { width: 100px; height: 100px; background-color: yellow; }
+    </style>
+</head>
+<body>
+    <p>
+        <button id="btn1">1번 버튼</button>&nbsp;
+        <button id="btn2">2번 버튼</button>&nbsp;
+        <button id="btn3">3번 버튼</button>
+    </p>
+    <div id="div1"></div>
+</body>
+</html>

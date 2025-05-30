@@ -1,0 +1,49 @@
+<!-- 
+    [jQuery AJAX 실습]
+    1. https://jsonplaceholder.typicode.com/todos GET방식 AJAX 요청
+    2. 데이터 로딩 버튼을 누르면 테이블을 생성해서 테이블에 가져온 데이터를 출력
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery ajax 실습</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $('button').click(e => {
+                $.get(
+                'https://jsonplaceholder.typicode.com/todos',
+                function(data) {
+                    console.log(data);
+                        
+                    // 4행 200열
+                    let table = $('<table></table>');
+                    table.append("<thead></thead>")
+                    .html("<th>userId</th><th>id</th><th>title</th><th>completed</th>").append('<tbody>');
+                    let tr = $('<tr></tr>');
+                    for(let todo of data){
+                        tr.append(
+                            $('<td></td>').text(todo.userId),
+                            $('<td></td>').text(todo.id),
+                            $('<td></td>').text(todo.title),
+                            $('<td></td>').text(todo.completed)
+                        )
+                    }
+                    table.append('</tbody>');
+                    $('body').append(table);      
+                } 
+            );
+            });
+        })
+    </script>
+    <style>table, tbody, tr, td { border: 1px solid #333; }</style>
+</head>
+<body>
+    <p>
+        <button>데이터 로딩</button>
+    </p>
+</body>
+</html>
