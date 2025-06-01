@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom 실습 4</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script defer src="ex4.32.dom.js"></script>
+    <style>
+        table { width: 600px; }
+        caption { font-size: 2em; font-weight: bold; }
+        table, th, td { border: 1px solid #333; border-collapse: collapse; }
+        th, td { width: 150px; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>성적표</caption>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>성명</th>
+                <th>국어</th>
+                <th>영어</th>
+                <th>수학</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot></tfoot>
+    </table>
+    <p>
+        <button id="initBtn">데이터초기화</button>&nbsp;
+        <button id="loadBtn">데이터불러오기</button>
+        <button id="sumBtn">총점출력</button>
+        <button id="sortBtn">번호순정렬</button>
+    </p>
+    <div>
+        <legend>성명</legend>
+        <input type="text" id="name"/>
+        <legend>국어</legend>
+        <input type="number" id="kor"/>
+        <legend>영어</legend>
+        <input type="number" id="eng"/>
+        <legend>수학</legend>
+        <input type="number" id="math"/>
+
+        <div>
+            <button id="addBtn">데이터 추가</button>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
