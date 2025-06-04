@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>race</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        img { width: 100px; }
+        #ground { 
+            background-color: green; width: 1024px; 
+            border: 1px solid #333; padding: 20px 0;
+            position: relative; height: 80px;
+        }
+    </style>
+    <script defer src="ex.35.race.js"></script>
+</head>
+<body>
+    <div>
+        <p id="ground">
+            <img src="assets/horse.gif" alt="달리는 말" />
+        </p>
+        <p>
+            <button id="start">경주시작</button>&nbsp;
+            <span id="time"></span>
+        </p>
+    </div>
+</body>
+</html>
