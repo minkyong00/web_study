@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST 실습</title>
+    <style>
+        body { font-size: 1.2em; text-align: center; }
+        input, button { font-size: 20px; }
+        input { width: 100px; }
+        p { 
+            width: 860px; height: 60px; border: 1px solid #ddd;
+            margin: 0 auto 20px auto; border-radius: 10px; 
+            text-align: center; line-height: 60px;
+        }
+        table { width:860px; margin: 0 auto; }
+        caption { font-size: 1.4em; font-weight: bold; margin-bottom: 10px;}
+        thead { background-color: #eee; }
+        table, th, td { 
+            border: 1px solid #333; border-collapse: collapse; 
+        }
+        th, td { height: 30px; line-height: 30px;}
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script defer src="ex.36.asyncprogramming2.js"></script>
+</head>
+<body>
+    <p>
+        <button id="listTodos">할일 목록</button>
+    </p>
+    <p>
+        번호 <input id="tid" type="text" class="tid" />&nbsp;
+        <button id="getTodo" >보기</button>
+    </p>
+    <p>
+        id <input id="id" type="text" placeholder="id" class="tid" />&nbsp;
+        할일 <input id="todo" type="text" placeholder="할일" />&nbsp;
+        완료여부 
+        <select name="selectCom" id="selectCom">
+            <option value="true">완료</option>
+            <option value="false">미완료</option>
+        </select>
+        <button id="saveTodo">등록</button>
+    </p>
+    <p>
+        할일 <input type="text" id="stodo" />&nbsp;
+        <button id="searchTodo" >검색</button>
+    </p>
+    <p>
+        <select name="selectCom" id="selectCom">
+            <option value="true">완료</option>
+            <option value="false">미완료</option>
+        </select>
+        <button id="selectComBtn" >검색</button>
+    </p>
+    <table>
+        <caption>할일</caption>
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>할일</td>
+                <td>완료 여부</td>
+                <td>수정/삭제</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+</html>
