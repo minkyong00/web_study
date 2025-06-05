@@ -34,7 +34,7 @@ addEventListener('keyup', e => {
     if(!isRace) return; // 경주 중이 아니면 아래 코드 실행안됨
     
     if(e.code === 'Space'){
-        const newLeft = currLeftNum + 30;
+        const newLeft = currLeftNum + 10;
         // 말의 왼쪽 위치와 말 이미지 넓이를 더한 값이
         // 그라운드 넓이보다 클경우
         if(newLeft + imgWidth >= groundWidthNum){
