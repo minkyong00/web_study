@@ -74,6 +74,8 @@ $('#getTodo').click(e => {
 
 // 등록 버튼 클릭 시 저장
 $('#saveTodo').click(e => {
+    console.log($('#addselectCom').val());
+    
     addTodo();
 });
 
@@ -104,11 +106,12 @@ $('#selectComBtn').click(e => {
         let comTodoArr = [];
         console.log($('#selectCom').val());
         
+        
         todos.forEach(e => {
             if(e.completed === $('#selectCom').val()) {
-                comTodoArr.push(todos.filter(to => String(to.completed).includes($('#selectCom').val())));
-            } else {
                 comTodoArr.push(todos.filter(to => String(!to.completed).includes($('#selectCom').val())));
+            } else {
+                comTodoArr.push(todos.filter(to => String(to.completed).includes($('#selectCom').val())));
             }
         });
         
@@ -159,7 +162,7 @@ const addTodo = () => {
     xhr.send(JSON.stringify({
         "id": $('#id').val(),
         "todo": $('#todo').val(),
-        "completed": $('#selectCom').val()
+        "completed": Boolean($('#addselectCom').val())
     }))
     xhr.onload = () => {
         responseArr = JSON.parse(xhr.response);
