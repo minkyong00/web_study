@@ -4,9 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>race 실습</title>
+    <link rel="stylesheet" href="ex.race.css">
     <script defer src="ex.race.js"></script>
 </head>
 <body>
-    
+    <header>::: RACING GAME :::</header>
+    <main>
+        <div id="imgBox">
+            <img id="background" src="/js/assets/background.jpg" alt="배경">
+            <img id="horse1" class="horse" src="/js/assets/horse.gif" alt="말1">
+            <img id="horse2" class="horse" src="/js/assets/horse.gif" alt="말2">
+            <img id="horse3" class="horse" src="/js/assets/horse.gif" alt="말3">
+            <img id="horse4" class="horse" src="/js/assets/horse.gif" alt="말4">
+        </div>
+        <div id="container">
+            <p id="result"></p>
+            <div id="buttonBox">
+                <button id="reset">RESET</button>
+                <div>
+                    <select name="level" id="level">
+                        <option value="herd">HERD</option>
+                        <option value="medium">MEDIUM</option>
+                        <option value="easy">EASY</option>
+                    </select>
+                    <button id="start">START</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>Copyright 2025 It'me all right reserved</footer>
 </body>
 </html>
