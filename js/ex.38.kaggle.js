@@ -18,35 +18,42 @@ const fetchSamsung = async () => {
     const data = await response.json();
     // samsungArr.push(data);
     for(let key in data){
-        samsungArr.push(data[key]);
+        samsungArr.push(data);
         samsungKey.push(key);
         console.log(key);
     }
     console.log(samsungArr);
     
 }
-fetchSamsung();
+fetchSamsung().then(() => {
 
-document.querySelector('#listBtn').addEventListener('click', e => {
-    const table = document.createElement('table');
-    for(let key of samsungKey) {
-        const tr = document.querySelector('tr');
-        const td = document.createElement('td');      
-        td.innerText += key;
-        tr.append(td);
-    }
-
-    for(let samsung of samsungArr){
-        console.log(samsung);
-        const tr = document.createElement('tr');  
-        const td = document.createElement('td');      
-        for(let i in samsung){
-            console.log(samsung[i]);
-            
-            td.innerText += samsung[i];
-            tr.append(td);
+    document.querySelector('#listBtn').addEventListener('click', e => {
+        const table = document.createElement('table');
+        const thead = document.createElement('thead');
+        const tr = document.createElement('tr');
+        for(let key of samsungKey) {
+            const th = document.createElement('th');      
+            th.innerText = key;
+            tr.append(th);
         }
-        table.appendChild(tr);
-    }
-    document.querySelector('body').append(table)
-});
+        thead.appendChild(tr);
+        table.appendChild(thead);
+        console.log(samsungArr[0].Date.length);
+        
+    
+        const tbody = document.createElement('tbody');
+        for(let i=0; i<samsungArr.Date.length; i++){
+            const tbodyTr = document.createElement('tr');
+            for(let samsung of samsungArr){
+                console.log(samsung);
+                
+                const td = document.createElement('td');
+                td.innerText = samsung[i];
+                tbodyTr.appendChild(td)
+            }
+            tbody.append(tbodyTr);
+        }        
+        table.appendChild(tbody);
+        document.querySelector('body').append(table)
+    });
+})
