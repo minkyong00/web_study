@@ -44,6 +44,16 @@
       "todo": "할일9",
       "completed": false,
       "id": "9"
+    },
+    {
+      "id": "10",
+      "todo": "할일10 수정",
+      "completed": true
+    },
+    {
+      "id": "8",
+      "todo": "김주미 POST",
+      "completed": false
     }
   ]
 }
