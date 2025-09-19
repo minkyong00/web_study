@@ -17,13 +17,13 @@
       <div class="card shadow-sm section-card h-100">
         <div class="card-header text-center">등록된 게시판</div>
         <div class="card-body">
-          <c:if test="${empty boardList}">
+          <!-- <c:if test="${empty boardList}">
             <p class="text-muted mb-0">등록된 게시판이 없습니다.</p>
-          </c:if>
+          </c:if> -->
 
           <div class="list-group list-group-flush">
-            <c:forEach var="b" items="${boardList}" varStatus="stat">
-              <c:if test="${stat.count<=10}"> <!-- 최대 10개까지만 표시 -->
+            <!-- <c:forEach var="b" items="${boardList}" varStatus="stat">
+              <c:if test="${stat.count<=10}"> 
               <div class="list-group-item d-flex justify-content-between align-items-center px-0">
                 <span class="me-2">${b.bname}</span>
                 <a class="btn btn-sm btn-outline-secondary"
@@ -32,7 +32,7 @@
                 </a>
               </div>
               </c:if>
-            </c:forEach>
+            </c:forEach> -->
           </div>
         </div>
       </div>
@@ -44,11 +44,11 @@
       <div class="card shadow-sm section-card mb-4">
         <div class="card-header text-center">최근 게시물 (${LATEST_ARTICLE_LIMIT} 건)</div>
         <div class="card-body p-0">
-          <c:if test="${empty latestArticleList}">
+          <!-- <c:if test="${empty latestArticleList}">
             <p class="text-muted p-3 mb-0">등록된 글이 없습니다.</p>
-          </c:if>
+          </c:if> -->
           <ul class="list-group list-group-flush">
-            <c:forEach var="article" items="${latestArticleList}" varStatus="stat">
+            <!-- <c:forEach var="article" items="${latestArticleList}" varStatus="stat">
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div class="me-3 text-truncate" style="max-width: 70%;">
                   <c:if test="${not empty article.bname}">
@@ -60,7 +60,7 @@
                   <fmt:formatDate value="${article.aregdate}" pattern="M/d HH:mm"/>
                 </small>
               </li>
-            </c:forEach>
+            </c:forEach> -->
           </ul>
         </div>
       </div>
@@ -69,18 +69,18 @@
       <div class="card shadow-sm section-card">
         <div class="card-header text-center">최근 가입 회원 (${LATEST_MEMBER_LIMIT} 명)</div>
         <div class="card-body p-0">
-          <c:if test="${empty latestMemberList}">
+          <!-- <c:if test="${empty latestMemberList}">
             <p class="text-muted p-3 mb-0">최근 가입한 회원이 없습니다.</p>
-          </c:if>
+          </c:if> -->
           <ul class="list-group list-group-flush">
-            <c:forEach var="member" items="${latestMemberList}" varStatus="stat">
+            <!-- <c:forEach var="member" items="${latestMemberList}" varStatus="stat">
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div class="text-truncate" style="max-width:70%;">[${member.mid}] ${member.mname}</div>
                 <small class="text-muted">
                   <fmt:formatDate value="${member.mregdate}" pattern="M/d HH:mm"/>
                 </small>
               </li>
-            </c:forEach>
+            </c:forEach> -->
           </ul>
         </div>
       </div>
@@ -91,19 +91,19 @@
       <div class="card shadow-sm section-card h-100">
         <div class="card-header text-center">최근 등록 사진</div>
         <div class="card-body">
-          <c:if test="${empty latestPhotoList}">
+          <!-- <c:if test="${empty latestPhotoList}">
             <p class="text-muted mb-0">등록된 사진이 없습니다.</p>
-          </c:if>
+          </c:if> -->
 
           <!-- 2열 썸네일 그리드 -->
           <div class="row row-cols-2 g-3">
-            <c:forEach var="photo" items="${latestPhotoList}">
+            <!-- <c:forEach var="photo" items="${latestPhotoList}">
               <div class="col">
                 <a href="${photo.linkUrl != null ? photo.linkUrl : '#'}" class="d-block">
                   <img class="photo-tile" src="${photo.imgUrl}" />
                 </a>
               </div>
-            </c:forEach>
+            </c:forEach> -->
           </div>
         </div>
       </div>
