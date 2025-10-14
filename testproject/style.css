@@ -1,0 +1,63 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.body {
+  width: 1024px;
+}
+
+.val {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 90%;
+  height: 100vh;
+  /* min-width: 1440px; */
+  min-height: 2000px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.val .element {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* min-width: 1440px; */
+  min-height: 2000px;
+  object-fit: cover;
+}
+
+.bird-animation {
+  position: absolute;
+  top: 10%;
+  left: -100px;
+  width: 180px;
+  height: 120px;
+  z-index: 10;
+  animation: flyBird 8s linear infinite;
+}
+
+@keyframes flyBird {
+  0% {
+    left: -100px;
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% + 100px);
+    opacity: 0;
+  }
+}
+
+.birds-static {
+  position: absolute;
+  top: 3%;
+  left: 3%;
+  width: 300px;
+  height: 250px;
+  z-index: 15;
+}
