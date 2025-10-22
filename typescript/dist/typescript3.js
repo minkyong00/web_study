@@ -50,7 +50,7 @@ function shuffleBooks(books) {
 shuffleBooks(null);
 /* 타입 가드(guard) */
 // 여러개의 타입으로 지정된 값을 특정 위치에서 원하는 타입으로 구분
-// typeof, instanceof, in 연산자를 통해서 타입의 범위를 좁힘
+// typeof, instanceof. in 연산자를 통해서 타입의 범위를 좁힘
 // typeof로 타입 가드
 const v1 = 'hello';
 if (typeof v1 === 'string') {
